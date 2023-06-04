@@ -5,6 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <!--Draggable API for rounded controllers-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/Draggable.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+        <!-- Imports the pokemon font -->
         <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
         <title>Draw your dreams</title>
     </head>
@@ -15,16 +19,26 @@
             <div class="bottom">
                 <div class="knobLeft">
                     <div class="bigCanvas"></div>
-                    <div class="KL-icon"></div>
-                    <div class="smallCanvas"></div>
+                    <div class="lower-control">
+                        <div id="size-controller">
+                            <div class="KL-icon"></div>
+                        </div>
+                        <div class="smallCanvas"></div>
+                    </div>
                 </div>
                 <div class="buttonCenter">
                     <button>CLEAR</button>
                 </div>
                 <div class="knobRight">
-                    <div class="rainbow"></div>
-                    <div class="KR-icon"></div>
-                    <div class="black"></div>
+                    <div>
+                        <div class="rainbow"><img src="rainbow.png" alt=""></div>
+                        <div class="lower-control rightC">
+                            <div id="color-controller">
+                                <div class="KR-icon"></div>
+                            </div>
+                            <div class="black-ink"><img src="black.png" alt=""></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
