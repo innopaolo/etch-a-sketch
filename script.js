@@ -9,7 +9,7 @@ const sizeController = Draggable.create("#size-controller",{
     onDragEnd: () => {
         if (sizeController[0].endRotation < 300) {
             selectedSize = 64;
-        } else if (sizeController[0].endRotation > 300 && sizeController[0].endRotation < 330) {
+        } else if (sizeController[0].endRotation > 300 && sizeController[0].endRotation < 340) {
             selectedSize = 32; 
         } else {
             selectedSize = 16;
@@ -33,7 +33,7 @@ const grid = document.querySelector(".etch-grid");
 grid.style.display = "grid";
 
 // Create grid cells based on user selection
-function createGrid() {
+function createGrid(selectedSize) {
     grid.innerHTML = "";
 
     grid.style.gridTemplateColumns = `repeat(${selectedSize}, 1fr)`;
@@ -52,6 +52,7 @@ function createGrid() {
 function eraseGrid() {
     grid.innerHTML = "";
 }
+
 
 createGrid();
 
