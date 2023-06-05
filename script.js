@@ -33,7 +33,7 @@ const grid = document.querySelector(".etch-grid");
 grid.style.display = "grid";
 
 // Create grid cells based on user selection
-function createGrid(selectedSize) {
+function createGrid() {
     grid.innerHTML = "";
 
     grid.style.gridTemplateColumns = `repeat(${selectedSize}, 1fr)`;
