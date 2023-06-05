@@ -53,6 +53,12 @@ function eraseGrid() {
     grid.innerHTML = "";
 }
 
-
 createGrid();
 
+grid.addEventListener("mouseover", function(event) {
+    if (event.target.matches('.grid-cell')) {
+      event.target.style.backgroundColor = "black";
+      console.log('Clicked on a grid cell');
+      // Add your custom logic here
+    }
+  });
