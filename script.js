@@ -22,7 +22,7 @@ const colorController = Draggable.create("#color-controller",{
     type: "rotation",
     bounds:{minRotation:0, maxRotation: 90},
     onDragEnd: () => {
-        colorController[0].endRotation < 45 ? selectedColor = 'black' : selectedColor = 'rainbow';
+        selectedColor = colorController[0].endRotation < 45 ? 'black' : 'rainbow';
     }
 });
 
@@ -43,11 +43,20 @@ function createGrid() {
         for (let j = 0; j < selectedSize; j++) {
             let cell = document.createElement("div");
             cell.classList.add("grid-cell");
-            cell.style.border = "1px solid black";
             grid.appendChild(cell);
         }
     }
 }
+
+// Generate random colors for rainbow effect
+function randomColors () {
+    let red = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+
+    let rgb = `rgb(${red}, ${green}, ${blue})`;
+    return rgb;
+} 
 
 function eraseGrid() {
     grid.innerHTML = "";
@@ -55,10 +64,20 @@ function eraseGrid() {
 
 createGrid();
 
+// Event listeners for the webpage's functionalities
 grid.addEventListener("mouseover", function(event) {
     if (event.target.matches('.grid-cell')) {
-      event.target.style.backgroundColor = "black";
-      console.log('Clicked on a grid cell');
-      // Add your custom logic here
+        if (selectedColor === 'rainbow') {
+            event.target.style.backgroundColor = randomColors();
+        } else if (selectedColor === 'black') {
+            event.target.style.backgroundColor = selectedColor;
+        }
     }
   });
+
+const erase = document.querySelector(".buttonCenter")
+erase.addEventListener("click", function() {
+    eraseGrid();
+    createGrid();
+});
+
